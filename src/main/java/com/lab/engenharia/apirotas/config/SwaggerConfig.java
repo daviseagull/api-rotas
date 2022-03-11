@@ -19,7 +19,7 @@ public class SwaggerConfig {
         var license = getLicense();
         return new Info()
                 .title("API de Rotas")
-                .description("API responsável pelos dados de rotas no sistema de controle.")
+                .description("API responsável pelos dados de rotas no sistema de controle de viagens.")
                 .version("1.0.0-SNAPSHOT")
                 .license(license);
     }
