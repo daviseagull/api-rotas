@@ -1,6 +1,14 @@
 package com.lab.engenharia.apirotas.client;
 
+import com.lab.engenharia.apirotas.model.frotas.DriverSummaryDto;
+import com.lab.engenharia.apirotas.model.frotas.VehicleSummaryDto;
+
+import java.util.List;
+
 public interface FrotasClient {
 
-    String getHello();
+    List<VehicleSummaryDto> getVehiclesSummary(String status);
+
+    List<DriverSummaryDto> getDriversSummary(String status);
+
 }
