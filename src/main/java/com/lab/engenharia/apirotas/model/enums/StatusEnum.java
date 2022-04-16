@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public enum StatusEnum {
-
     WAITING("waiting", "Em espera"),
     IN_PROGRESS("inProgress", "Em progresso"),
     ENDED("ended", "Finalizada");
