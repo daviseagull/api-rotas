@@ -34,7 +34,7 @@ public class RouteControllerImpl implements RouteController {
     }
 
     @Override
-    @GetMapping("/drivers/status/{status}")
+    @GetMapping("/routes/status/{status}")
     public ResponseEntity<List<RouteSummaryDto>> getAllRoutesByStatus(@PathVariable String status) {
         return ok(routeService.getRoutesByStatus(status));
     }

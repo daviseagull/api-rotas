@@ -1,6 +1,7 @@
 package com.lab.engenharia.apirotas.v1.service.impl;
 
 import com.lab.engenharia.apirotas.client.FrotasClient;
+import com.lab.engenharia.apirotas.client.FrotasFeignClient;
 import com.lab.engenharia.apirotas.exception.RouteNotFoundException;
 import com.lab.engenharia.apirotas.mapper.RouteMapper;
 import com.lab.engenharia.apirotas.model.RouteDto;
@@ -20,7 +21,6 @@ import java.util.List;
 public class RouteServiceImpl implements RouteService {
 
     private final RouteRepository repository;
-
     private final RouteMapper mapper;
 
     @Override
