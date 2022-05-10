@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.springframework.http.ResponseEntity.ok;
 
@@ -43,5 +44,11 @@ public class RouteControllerImpl implements RouteController {
     @PostMapping
     public ResponseEntity<RouteDto> createRoute(RouteDto routeDto) {
         return ok(routeService.createRoute(routeDto));
+    }
+
+    @Override
+    @PatchMapping("/{id}")
+    public ResponseEntity<Map<String,String>> updateRoute(RouteDto routeDto) {
+        return ok(routeService.updateRoute(routeDto));
     }
 }

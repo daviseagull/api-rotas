@@ -14,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -72,5 +74,21 @@ public class RouteServiceImpl implements RouteService {
         var savedRoute = repository.save(route);
 
         return mapper.toRouteDto(savedRoute);
+    }
+
+    @Override
+    public Map<String,String> updateRoute(RouteDto routeDto) {
+        var id = routeDto.getId();
+        log.info("Updating route with id: {}", id);
+
+        var routeOpt = repository.findById(id);
+        if (routeOpt.isEmpty()) {
+            throw new RouteNotFoundException("Not possible to update a non existing route");
+        }
+
+        var route = mapper.toRoute(routeDto);
+        repository.save(route);
+
+        return Map.of("id", id);
     }
 }

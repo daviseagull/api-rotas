@@ -4,6 +4,7 @@ import com.lab.engenharia.apirotas.model.RouteDto;
 import com.lab.engenharia.apirotas.model.RouteSummaryDto;
 
 import java.util.List;
+import java.util.Map;
 
 public interface RouteService {
 
@@ -14,4 +15,6 @@ public interface RouteService {
     List<RouteSummaryDto> getRoutesByStatus(String status);
 
     RouteDto createRoute(RouteDto routeDto);
+
+    Map<String,String> updateRoute(RouteDto id);
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Map;
 
 public interface RouteController {
 
@@ -127,4 +128,32 @@ public interface RouteController {
                                     schema = @Schema(implementation = Object.class)))
             })
     ResponseEntity<RouteDto> createRoute(@RequestBody RouteDto routeDto);
+
+    @Operation(
+            summary = "Endpoint to create one route",
+            responses = {
+                    @ApiResponse(
+                            description = "Data obtained with success.",
+                            responseCode = "200",
+                            content =
+                            @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = RouteDto.class))),
+                    @ApiResponse(
+                            description =
+                                    "The Request was malformed, omitting mandatory attributes, either in the payload or through attributes in the url.",
+                            responseCode = "400",
+                            content =
+                            @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = String.class))),
+                    @ApiResponse(
+                            description = "Unmapped Error.",
+                            responseCode = "500",
+                            content =
+                            @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = Object.class)))
+            })
+    ResponseEntity<Map<String,String>> updateRoute(@RequestBody RouteDto routeDto);
 }
